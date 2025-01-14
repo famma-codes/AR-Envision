@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markerless WebAR</title>
+    <title>Simple AR.js Example</title>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/ar.js"></script>
     <style>
@@ -18,16 +18,17 @@
     </style>
 </head>
 <body>
-    <!-- AR.js Scene (with GPS) -->
+    <!-- AR.js Scene (with Marker) -->
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-        <!-- GPS-based Camera -->
-        <a-entity gps-camera rotation-reader></a-entity>
+        <!-- Marker -->
+        <a-marker preset="hiro">
+            <a-box position="0 0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" color="red"></a-box>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
 
-        <!-- 3D Model -->
-        <a-entity 
-            gltf-model="url(assets/urban1.glb)" 
-            position="0 0 0" 
-            scale="0.5 0.5 0.5"
             gps-entity-place="latitude: 40.748817; longitude: -73.985428;"></a-entity>
 
     </a-scene>
